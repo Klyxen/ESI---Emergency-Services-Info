@@ -1,1 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
+}
 
+body {
+  background-color: #121212;
+  color: #f0f0f0;
+  line-height: 1.6;
+  padding-top: 60px; 
+}
+
+header {
+  background-color: #1c1c1c;
+  padding: 0.4rem 1rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-links li a {
+  font-size: 0.9rem;
+  color: #f0f0f0;
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.nav-links li a:hover {
+  background-color: #2a2a2a;
+}
+
+.yellow-gold {
+  color: #FFD700; /* Yellow gold color */
+  font-weight: bold;
+}
+
+main {
+  padding: 1.5rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+section {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.4);
+  transition: background 0.3s, transform 0.3s;
+}
+
+h1, h2 {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  color: #cccccc;
+  font-size: 0.95rem;
+}
+
+.copy-btn {
+  background-color: #FFD700;
+  color: #000;
+  border: none;
+  padding: 0.5rem;
+  margin-left: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.copy-btn:hover {
+  background-color: #ffcc00;
+}
+
+.flash {
+  animation: flashSection 1.2s ease-in-out;
+}
+
+@keyframes flashSection {
+  0% {
+    box-shadow: 0 0 0px rgba(128, 0, 255, 0);
+    background-color: #1a1a1a;
+  }
+  30% {
+    background-color: #3c1d5a;
+    box-shadow: 0 0 12px rgba(128, 0, 255, 0.6);
+  }
+  100% {
+    background-color: #1a1a1a;
+    box-shadow: 0 0 0px rgba(128, 0, 255, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+}
