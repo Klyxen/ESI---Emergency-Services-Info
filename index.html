@@ -3,17 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>EMI</title>
-  
-  <!-- Custom Styles -->
+  <title>ESI - Emergency Services Information</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  
-  
-  <script src="main.js"></script>
+
+  <header>
+    <nav class="navbar">
+      <div class="logo">EMI</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#police">Police</a></li>
+        <li><a href="#fire">Fire</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home">
+      <h1>Emergency Info Iloilo City</h1>
+      <p>Quick access to important emergency contacts in Iloilo City, Philippines.</p>
+    </section>
+
+    <section id="police">
+      <h2>Police</h2>
+      <p class="yellow-gold">Iloilo City Police: <span id="police-number">033-320-2043</span></p>
+      <button class="copy-btn" onclick="copyText('police-number')">Copy</button>
+      <p class="yellow-gold">National Emergency Police: 117 or 911 (Nationwide)</p>
+      <button class="copy-btn" onclick="copyText('police-national-number')">Copy</button>
+    </section>
+
+    <section id="fire">
+      <h2>Fire Department</h2>
+      <p class="yellow-gold">Iloilo City Fire Station: <span id="fire-number">033-320-2459</span></p>
+      <button class="copy-btn" onclick="copyText('fire-number')">Copy</button>
+      <p class="yellow-gold">National Fire Hotline: 911</p>
+      <button class="copy-btn" onclick="copyText('fire-national-number')">Copy</button>
+    </section>
+  </main>
+
+  <script>
+    // Copy to clipboard function
+    function copyText(elementId) {
+      const text = document.getElementById(elementId).innerText;
+      const tempInput = document.createElement('input');
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+
+      // Optional: Show "Copied!" message
+      const button = event.target;
+      button.innerText = 'Copied!';
+      setTimeout(() => {
+        button.innerText = 'Copy';
+      }, 1500);
+    }
+
+    // Flash animation when section is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', e => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+          target.classList.add('flash');
+          setTimeout(() => target.classList.remove('flash'), 1200);
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
